@@ -17,14 +17,14 @@ const auth = {
                 // find User
                 User.findById(data.id, (err, user) => {
                     if(err){
-                        res.send(500);
+                        res.status(500).end();
                     }
 
                     if(!user){
                         return res.status(404).json({
                             error: {
                                 title: "User not found",
-                                message: "Token verified but cannot find user in database. Try signing in again"
+                                message: "Token verified but cannot find user in database"
                             }
                         })
                     }
@@ -35,8 +35,8 @@ const auth = {
         }
         else {
             res.status(401).json({
-                message: { 
-                    error: "No token provided"
+                error: { 
+                    message: "No token provided"
                 }
             })
         }

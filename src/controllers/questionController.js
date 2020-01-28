@@ -8,11 +8,18 @@ class QuestionController {
         let id = req.params.id;
         Question.findById(id, (err, question) => {
             if (err) {
-                res.send(404).json({
+                return res.status(404).json({
                     error: {
-                        message: "Question not found"
+                        message: "Cannot retrieve question"
                     }
                 });
+            }
+            if(!question){
+                return res.status(404).json({
+                    error: {
+                        message: "Question not Found"
+                    }
+                })
             }
 
             res.status(200).send(question);

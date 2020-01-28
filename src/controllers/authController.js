@@ -27,7 +27,7 @@ class AuthController {
                             jwt: token
                         });
                     } else {
-                        res.send(401).json({
+                        res.status(401).json({
                             error: {
                                 message: "Incorrect password"
                             }

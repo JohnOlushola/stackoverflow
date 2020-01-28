@@ -58,10 +58,6 @@ class UserController {
         }
     }
 
-    // delete user
-    delete(req, res) {
-        res.send("NOT IMPLEMENTED");
-    }
 }
 
 module.exports = new UserController();
